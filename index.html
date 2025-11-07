@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Тайный Санта</title>
+  <link rel="icon" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="row header">
+        <h1>Тайный Санта 🎄🎅</h1>
+        <span class="badge">Magic Ivan • Иллюзионист</span>
+      </div>
+      <p class="note">Вводите «Имя | Адрес» (адрес можно пустым). Слепый режим, персональные ссылки, письма и фото. Данные хранятся в Firebase.</p>
+
+      <!-- PARTICIPANT -->
+      <section id="participant" class="hide">
+        <hr class="sep"/>
+        <h2 id="p_title">Ваша роль</h2>
+        <div id="p_role" class="item"></div>
+
+        <h2>Отправить письмо получателю</h2>
+        <div class="msg">
+          <label>Текст сообщения</label>
+          <textarea id="msg_text" rows="3" placeholder="Поздравление, ссылка на QR/получение и т.д."></textarea>
+          <div class="row" style="margin-top:8px">
+            <input type="file" id="msg_file" accept="image/*"/>
+            <button class="btn ok" id="send_btn">Отправить</button>
+          </div>
+          <p id="send_status" class="note"></p>
+        </div>
+
+        <h2>Письма от твоего тайного Санты</h2>
+        <div id="inbox"></div>
+
+        <hr class="sep"/>
+        <a class="btn ghost" href="#" onclick="location.href=location.origin+location.pathname;return false;">Создать новую игру</a>
+
+        <div class="cta">
+          Хотите новогодний вау-эффект? Добавьте <strong>Микромагию</strong> или <strong>Comedy Magic</strong> от Ивана Банникова — идеально для welcome-зоны и перерывов.
+        </div>
+      </section>
+
+      <!-- ORGANIZER -->
+      <section id="organizer">
+        <div class="grid cols">
+          <div>
+            <h2>1) Имена и адреса</h2>
+            <textarea id="names" rows="10" placeholder="Каждый участник с новой строки.
+Формат: Имя | Адрес (адрес опционально)
+
+Пример:
+Алена | Екатеринбург, ул. Ленина, 1
+Илья | Москва, а/я 42
+Катя"></textarea>
+            <label class="check"><input type="checkbox" id="blind"> Слепый режим (организатор не видит пары)</label>
+            <label class="check"><input type="checkbox" id="noSelf" checked> Не дарить самому себе</label>
+            <div class="row" style="margin-top:12px">
+              <button class="btn primary" id="generate">Сгенерировать ссылки</button>
+            </div>
+            <p id="status" class="note"></p>
+          </div>
+          <div>
+            <h2>2) Ссылки для участников</h2>
+            <div id="links" class="list"></div>
+            <p class="note">Нажмите «Копировать» и отправьте участнику. В слепом режиме пара раскроется только при открытии ссылки.</p>
+            <p class="note copy-ok" id="copyhint"></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>
+
